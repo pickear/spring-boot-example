@@ -1,4 +1,49 @@
 ###jetty
 server:
    port: 8081
-   contextPath: /spring-boot-example
+
+spring:
+  main:
+    banner-mode: log
+  devtools:
+    livereload:
+      enabled: false
+    restart:
+      enabled: true
+      trigger-file: .reloadtrigger
+      log-condition-evaluation-delta: false
+      exclude: templates/**
+    remote:
+      secret: 5805703
+
+  thymeleaf:
+    enabled: true
+    cache: false
+    check-template: true
+    check-template-location: true
+    content-type: text/html
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+
+springboot:
+  example:
+    test-analyser: false
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: liquibase,threaddump
+  endpoint:
+    shutdown:
+      enabled: true
+info:
+  build:
+    artifact: "@project.artifactId@"
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"

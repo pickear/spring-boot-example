@@ -4,7 +4,7 @@ import com.weasel.springboot.application.UserService;
 import com.weasel.springboot.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,7 +19,7 @@ public class UserController {
     private UserService service;
 
     @RequestMapping("/get")
-    public User get(){
+    public User get(@RequestParam(required = false,value = "user_id") Long userId){
         return service.getUser();
     }
 }

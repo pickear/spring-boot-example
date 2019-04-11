@@ -1,0 +1,12 @@
+# Failure Analyzers
+org.springframework.boot.diagnostics.FailureAnalyzer=\
+com.weasel.springboot.infrastructure.analyzers.TestFailureAnalyser
+
+# FailureAnalysisReporters
+org.springframework.boot.diagnostics.FailureAnalysisReporter=\
+com.weasel.springboot.infrastructure.analyzers.TestLoggingFailureAnalysisReporter
+
+@ Listener
+org.springframework.context.ApplicationListener=\
+com.weasel.springboot.infrastructure.listeners.ApplicationEnvironmentPreparedListener,\
+com.weasel.springboot.infrastructure.listeners.ApplicationPreparedLitener
